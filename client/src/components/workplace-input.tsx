@@ -326,9 +326,11 @@ export default function WorkplaceInput({
                 <Slider
                   value={budgetRange}
                   onValueChange={(value) => setBudgetRange(value as [number, number])}
+                  defaultValue={[20, 200]}
                   max={500}
                   min={10}
                   step={5}
+                  minStepsBetweenThumbs={1}
                   className="w-full"
                 />
                 <div className="flex justify-between text-sm text-gray-600">
