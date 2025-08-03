@@ -62,10 +62,10 @@ export default function AppHeader({ searchQuery, onSearchChange }: AppHeaderProp
             />
           </div>
 
-          <Button variant="ghost" size="sm" className="p-2 text-gray-600 hover:text-gray-900">
+          <Button variant="ghost" size="sm" className="p-2 text-muted-foreground hover:text-foreground">
             <Bell className="w-4 h-4" />
           </Button>
-          <Button variant="ghost" size="sm" className="p-2 text-gray-600 hover:text-gray-900">
+          <Button variant="ghost" size="sm" className="p-2 text-muted-foreground hover:text-foreground">
             <Settings className="w-4 h-4" />
           </Button>
           <ThemeToggle />
