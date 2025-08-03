@@ -30,7 +30,7 @@ export default function WorkplaceInput({
   const [maxPrice, setMaxPrice] = useState<string>("all");
   const [selectedLocality, setSelectedLocality] = useState<LocalityWithData | null>(null);
   const [showPropertyFilter, setShowPropertyFilter] = useState(false);
-
+  
   // Property filter states
   const [bhkFilter, setBhkFilter] = useState<string[]>([]);
   const [bathroomFilter, setBathroomFilter] = useState<string[]>([]);
@@ -39,7 +39,7 @@ export default function WorkplaceInput({
   const [furnishingFilter, setFurnishingFilter] = useState<string[]>([]);
   const [statusFilter, setStatusFilter] = useState<string[]>([]);
   const [listedByFilter, setListedByFilter] = useState<string[]>([]);
-
+  
   // Fetch all workplaces for initial suggestions
   const { data: allWorkplaces = [] } = useQuery<Workplace[]>({
     queryKey: ['/api/workplaces']
@@ -123,7 +123,7 @@ export default function WorkplaceInput({
               </Button>
             )}
           </div>
-
+          
           {/* Price Filter - always visible */}
           <div className="flex items-center gap-2 min-w-0">
             <Filter className="h-4 w-4 text-gray-500 flex-shrink-0" />
@@ -197,7 +197,7 @@ export default function WorkplaceInput({
               Clear
             </Button>
           </div>
-
+          
           {recommendations.length > 0 && (
             <div className="mt-3 space-y-2">
               <div className="text-xs text-blue-600 font-medium">Top recommendations:</div>
@@ -261,7 +261,7 @@ export default function WorkplaceInput({
               Property Search in {selectedLocality?.name}
             </DialogTitle>
           </DialogHeader>
-
+          
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* BHK Filter */}
             <div className="space-y-3">
@@ -439,7 +439,7 @@ export default function WorkplaceInput({
           </div>
 
           <Separator />
-
+          
           <div className="flex justify-between items-center pt-4">
             <Button variant="outline" onClick={() => {
               setBhkFilter([]);

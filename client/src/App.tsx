@@ -7,10 +7,6 @@ import { ThemeProvider } from "@/contexts/theme-context";
 import Dashboard from "@/pages/dashboard";
 import Properties from "@/pages/properties";
 import NotFound from "@/pages/not-found";
-import MapView from "./components/map/map-view";
-import Sidebar from "./components/layout/sidebar";
-import WorkplaceInput from "./components/workplace-input";
-import MobileSidebar from "./components/layout/mobile-sidebar";
 
 function Router() {
   return (

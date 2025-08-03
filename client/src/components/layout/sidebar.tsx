@@ -103,7 +103,7 @@ export default function Sidebar({ activeLayers, onLayerToggle, selectedPriceLaye
       {/* Layer Controls */}
       <div className="p-6 border-b border-gray-200">
         <h2 className="text-lg font-semibold text-gray-900 mb-4">Map Layers</h2>
-
+        
         {/* Price Layer Dropdown */}
         <div className="mb-6">
           <Label className="text-sm font-medium text-gray-700 mb-2 block">Land Prices</Label>
@@ -156,13 +156,13 @@ export default function Sidebar({ activeLayers, onLayerToggle, selectedPriceLaye
                 {legends[selectedPriceLayer as keyof typeof legends].map((item, index) => (
                   <div key={index} className="flex items-center space-x-2">
                     <div className={`w-3 h-3 ${item.color} rounded`}></div>
-                    <span className="text-xs text-muted-foreground">{item.label}</span>
+                    <span className="text-xs text-gray-600">{item.label}</span>
                   </div>
                 ))}
               </div>
             </div>
           )}
-
+          
           {/* Infrastructure Layers Legend - Clickable */}
           {activeLayers.map((layerKey) => {
             const legend = legends[layerKey as keyof typeof legends];
@@ -185,14 +185,14 @@ export default function Sidebar({ activeLayers, onLayerToggle, selectedPriceLaye
                   {legend.map((item, index) => (
                     <div key={index} className="flex items-center space-x-2">
                       <div className={`w-3 h-3 ${item.color} rounded`}></div>
-                      <span className="text-xs text-muted-foreground">{item.label}</span>
+                      <span className="text-xs text-gray-600">{item.label}</span>
                     </div>
                   ))}
                 </div>
               </div>
             );
           })}
-
+          
           {activeLayers.length === 0 && (!selectedPriceLayer || selectedPriceLayer === 'none') && (
             <p className="text-xs text-gray-500">Select layers to see legend</p>
           )}
@@ -202,7 +202,7 @@ export default function Sidebar({ activeLayers, onLayerToggle, selectedPriceLaye
       {/* Area Statistics */}
       <div className="p-6 flex-1 overflow-auto">
         <h3 className="text-sm font-semibold text-gray-900 mb-4">Area Statistics</h3>
-
+        
         {statistics && (
           <div className="space-y-4">
             <div className="bg-gray-50 rounded-lg p-4">
@@ -213,22 +213,22 @@ export default function Sidebar({ activeLayers, onLayerToggle, selectedPriceLaye
                 12.3% vs last quarter
               </div>
             </div>
-
+            
             <div className="bg-gray-50 rounded-lg p-4">
               <div className="text-xs text-gray-600 uppercase tracking-wide">Average Commercial Price</div>
               <div className="text-lg font-semibold text-gray-900">₹{statistics.avgCommercialPrice.toLocaleString()}/sq ft</div>
             </div>
-
+            
             <div className="bg-gray-50 rounded-lg p-4">
               <div className="text-xs text-gray-600 uppercase tracking-wide">Total Listings</div>
               <div className="text-lg font-semibold text-gray-900">{statistics.totalListings.toLocaleString()}</div>
             </div>
-
+            
             <div className="bg-gray-50 rounded-lg p-4">
               <div className="text-xs text-gray-600 uppercase tracking-wide">Transport Score</div>
               <div className="text-lg font-semibold text-green-600">{statistics.avgTransportScore}/10</div>
             </div>
-
+            
             <div className="bg-gray-50 rounded-lg p-4">
               <div className="text-xs text-gray-600 uppercase tracking-wide">Utility Coverage</div>
               <div className="text-lg font-semibold text-blue-600">{statistics.avgUtilityCoverage}%</div>

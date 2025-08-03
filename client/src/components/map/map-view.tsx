@@ -219,42 +219,49 @@ export default function MapView({ activeLayers, searchQuery, selectedWorkplace, 
           <Button 
             variant="secondary" 
             size="sm" 
-            className="bg-background/90 backdrop-blur-sm p-2 md:p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow border border-border"
+            className="bg-white p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             onClick={zoomIn}
           >
-            <Plus className="w-4 h-4 text-foreground" />
+            <Plus className="w-4 h-4 text-gray-600" />
           </Button>
           <Button 
             variant="secondary" 
             size="sm" 
-            className="bg-background/90 backdrop-blur-sm p-2 md:p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow border border-border"
+            className="bg-white p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             onClick={zoomOut}
           >
-            <Minus className="w-4 h-4 text-foreground" />
+            <Minus className="w-4 h-4 text-gray-600" />
           </Button>
           <Button 
             variant="secondary" 
             size="sm" 
-            className="bg-background/90 backdrop-blur-sm p-2 md:p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow border border-border"
+            className="bg-white p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
             onClick={resetView}
           >
-            <Maximize2 className="w-4 h-4 text-foreground" />
+            <Maximize2 className="w-4 h-4 text-gray-600" />
+          </Button>
+          <Button 
+            variant="secondary" 
+            size="sm" 
+            className="bg-white p-3 rounded-lg shadow-lg hover:shadow-xl transition-shadow"
+          >
+            <Layers className="w-4 h-4 text-gray-600" />
           </Button>
         </div>
 
-        {/* Quick Stats Overlay - Hidden on mobile to save space */}
-        <div className="hidden md:block absolute bottom-4 left-4 bg-background/90 backdrop-blur-sm rounded-lg shadow-lg p-4 max-w-sm z-[1000] border border-border">
-          <h4 className="text-sm font-semibold text-foreground mb-2">North Bangalore Overview</h4>
+        {/* Quick Stats Overlay */}
+        <div className="absolute bottom-4 left-4 bg-white rounded-lg shadow-lg p-4 max-w-sm z-[1000]">
+          <h4 className="text-sm font-semibold text-gray-900 mb-2">North Bangalore Overview</h4>
           <div className="grid grid-cols-2 gap-4 text-xs">
             <div>
-              <div className="text-muted-foreground">Active Layers</div>
-              <div className="font-semibold text-foreground capitalize">
+              <div className="text-gray-600">Active Layers</div>
+              <div className="font-semibold text-gray-900 capitalize">
                 {activeLayers.length > 0 ? activeLayers.map(layer => layer.replace('_', ' ')).join(', ') : 'None'}
               </div>
             </div>
             <div>
-              <div className="text-muted-foreground">Total Areas</div>
-              <div className="font-semibold text-foreground">{filteredLocalities.length}</div>
+              <div className="text-gray-600">Total Areas</div>
+              <div className="font-semibold text-gray-900">{filteredLocalities.length}</div>
             </div>
           </div>
         </div>
