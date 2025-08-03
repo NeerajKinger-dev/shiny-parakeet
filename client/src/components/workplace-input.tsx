@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/slider";
 import { Separator } from "@/components/ui/separator";
 import type { Workplace, LocalityWithData } from "@shared/schema";
 
@@ -34,7 +35,7 @@ export default function WorkplaceInput({
   // Property filter states
   const [bhkFilter, setBhkFilter] = useState<string[]>([]);
   const [bathroomFilter, setBathroomFilter] = useState<string[]>([]);
-  const [budgetFilter, setBudgetFilter] = useState<string>("");
+  const [budgetRange, setBudgetRange] = useState<[number, number]>([20, 200]);
   const [typeFilter, setTypeFilter] = useState<string[]>([]);
   const [furnishingFilter, setFurnishingFilter] = useState<string[]>([]);
   const [statusFilter, setStatusFilter] = useState<string[]>([]);
@@ -319,13 +320,25 @@ export default function WorkplaceInput({
             <div className="space-y-3">
               <Label className="text-sm font-medium flex items-center gap-2">
                 <IndianRupee className="h-4 w-4" />
-                Budget
+                Budget Range
               </Label>
-              <Input 
-                placeholder="Enter budget range (e.g., 50-80 Lakhs)" 
-                value={budgetFilter}
-                onChange={(e) => setBudgetFilter(e.target.value)}
-              />
+              <div className="space-y-3">
+                <Slider
+                  value={budgetRange}
+                  onValueChange={(value) => setBudgetRange(value as [number, number])}
+                  max={500}
+                  min={10}
+                  step={5}
+                  className="w-full"
+                />
+                <div className="flex justify-between text-sm text-gray-600">
+                  <span>₹{budgetRange[0]} Lakhs</span>
+                  <span>₹{budgetRange[1]} Lakhs</span>
+                </div>
+                <div className="text-center text-xs text-gray-500">
+                  Budget: ₹{budgetRange[0]}L - ₹{budgetRange[1]}L
+                </div>
+              </div>
             </div>
 
             {/* Property Type Filter */}
@@ -444,7 +457,7 @@ export default function WorkplaceInput({
             <Button variant="outline" onClick={() => {
               setBhkFilter([]);
               setBathroomFilter([]);
-              setBudgetFilter("");
+              setBudgetRange([20, 200]);
               setTypeFilter([]);
               setFurnishingFilter([]);
               setStatusFilter([]);
@@ -463,7 +476,7 @@ export default function WorkplaceInput({
                 const activeFilters = {
                   bhk: bhkFilter,
                   bathrooms: bathroomFilter,
-                  budget: budgetFilter,
+                  budget: `₹${budgetRange[0]}L - ₹${budgetRange[1]}L`,
                   type: typeFilter,
                   furnishing: furnishingFilter,
                   status: statusFilter,
