@@ -115,7 +115,10 @@ function getColorForIntensity(intensity: number, layer: string): string {
   const colors = {
     residential_prices: ['#22c55e', '#84cc16', '#eab308', '#f97316', '#ef4444'],
     commercial_prices: ['#22c55e', '#84cc16', '#eab308', '#f97316', '#ef4444'],
-    transport: ['#dbeafe', '#93c5fd', '#60a5fa', '#3b82f6', '#1d4ed8'],
+    buses: ['#a855f7', '#9333ea', '#7c3aed', '#6d28d9', '#5b21b6'],
+    metros: ['#a855f7', '#9333ea', '#7c3aed', '#6d28d9', '#5b21b6'],
+    ev_charging: ['#dcfce7', '#bbf7d0', '#86efac', '#4ade80', '#22c55e'],
+    transport: ['#a855f7', '#9333ea', '#7c3aed', '#6d28d9', '#5b21b6'],
     utilities: ['#e9d5ff', '#c4b5fd', '#a78bfa', '#8b5cf6', '#7c3aed'],
     roads: ['#ef4444', '#f97316', '#eab308', '#84cc16', '#22c55e']
   };
